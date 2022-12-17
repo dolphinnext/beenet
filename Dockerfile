@@ -7,6 +7,7 @@ RUN apt install -y python3-pip
 RUN ln -s /usr/bin/python3 /usr/bin/python && python --version   
 RUN wget --cipher 'DEFAULT:!DH' https://bioinfo.umassmed.edu/pub/beenet 
 RUN wget --cipher 'DEFAULT:!DH' https://bioinfo.umassmed.edu/pub/STAR
+## beenet bug: it has STAR 2.7.3a but expects 2.7.1a
 RUN chmod 755 beenet && mv beenet /usr/bin/. 
 ## STAR 2.7.1a
 RUN chmod 755 STAR && mv STAR /usr/bin/. 
