@@ -27,5 +27,11 @@ RUN wget --cipher 'DEFAULT:!DH' https://bioinfo.umassmed.edu/pub/beenet
 ## beenet bug: it has STAR 2.7.3a but expects 2.7.1a
 RUN chmod 755 beenet && mv beenet /usr/bin/. 
 
+RUN apt-get update && apt-get install -y gcc unzip
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+RUN aws --version
+
 RUN pip install wheel
 RUN pip install pandas
